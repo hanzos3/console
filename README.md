@@ -1,8 +1,8 @@
-# MinIO Console
+# Hanzo Space Console
 
-![build](https://github.com/minio/object-browser/actions/workflows/jobs.yaml/badge.svg) ![license](https://img.shields.io/badge/license-AGPL%20V3-blue)
+![build](https://github.com/hanzos3/console/actions/workflows/jobs.yaml/badge.svg) ![license](https://img.shields.io/badge/license-AGPL%20V3-blue)
 
-A graphical user interface for [MinIO](https://github.com/minio/minio)
+A graphical user interface for [Hanzo S3](https://github.com/hanzoai/s3)
 
 | Object Browser                       | Creating a bucket                     | Object Details                  |
 |--------------------------------------|-------------------------------|---------------------------------|
@@ -12,7 +12,7 @@ A graphical user interface for [MinIO](https://github.com/minio/minio)
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [MinIO Console](#minio-console)
+- [Hanzo Space Console](#hanzo-space-console)
   - [Install](#install)
     - [Build from source](#build-from-source)
   - [Setup](#setup)
@@ -21,19 +21,19 @@ A graphical user interface for [MinIO](https://github.com/minio/minio)
     - [3. Set the policy for the new `console` user](#3-set-the-policy-for-the-new-console-user)
   - [Start Console service:](#start-console-service)
   - [Start Console service with TLS:](#start-console-service-with-tls)
-  - [Connect Console to a Minio using TLS and a self-signed certificate](#connect-console-to-a-minio-using-tls-and-a-self-signed-certificate)
+  - [Connect Console to Hanzo S3 using TLS and a self-signed certificate](#connect-console-to-hanzo-s3-using-tls-and-a-self-signed-certificate)
 - [Contribute to console Project](#contribute-to-console-project)
 
 <!-- markdown-toc end -->
 
-MinIO Console is a library that provides a management and browser UI overlay for the MinIO Server.
+Hanzo Space Console is a library that provides a management and browser UI overlay for the Hanzo S3 Server.
 
 ## Setup
 
-All `console` needs is a MinIO user with admin privileges and URL pointing to your MinIO deployment.
+All `console` needs is a Hanzo S3 user with admin privileges and URL pointing to your Hanzo S3 deployment.
 
 > [!NOTE]
-> We don't recommend using MinIO's Operator Credentials
+> We don't recommend using Operator Credentials
 
 ### 1. Create a user `console` using `mc`
 
@@ -137,7 +137,7 @@ export CONSOLE_PBKDF_PASSPHRASE=SECRET
 # Required to encrypt JWT payload
 export CONSOLE_PBKDF_SALT=SECRET
 
-# MinIO Endpoint
+# Hanzo S3 Endpoint
 export CONSOLE_MINIO_SERVER=http://localhost:9000
 ```
 
@@ -166,25 +166,25 @@ Following tree structure is expected for supporting multiple domains:
 
 ```sh
  certs/
-  │
-  ├─ public.crt
-  ├─ private.key
-  │
-  ├─ example.com/
-  │   │
-  │   ├─ public.crt
-  │   └─ private.key
-  └─ foobar.org/
-     │
-     ├─ public.crt
-     └─ private.key
+  |
+  +- public.crt
+  +- private.key
+  |
+  +- example.com/
+  |   |
+  |   +- public.crt
+  |   +- private.key
+  +- foobar.org/
+     |
+     +- public.crt
+     +- private.key
   ...
 
 ```
 
-## Connect Console to a Minio using TLS and a self-signed certificate
+## Connect Console to Hanzo S3 using TLS and a self-signed certificate
 
-Copy the MinIO `ca.crt` under `~/.console/certs/CAs`, then:
+Copy the Hanzo S3 `ca.crt` under `~/.console/certs/CAs`, then:
 
 ```sh
 export CONSOLE_MINIO_SERVER=https://localhost:9000
@@ -213,7 +213,7 @@ the `CONSOLE_DEBUG_LOGLEVEL` environment variable to one of the following values
  - Duration of the request
 
 The detailed logging also includes all request and response headers (if any).
- 
+
 # Contribute to console Project
 
-Please follow console [Contributor's Guide](https://github.com/minio/console/blob/master/CONTRIBUTING.md)
+Please follow console [Contributor's Guide](https://github.com/hanzos3/console/blob/master/CONTRIBUTING.md)

@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -100,7 +100,7 @@ func getSessionResponse(ctx context.Context, session *models.Principal) (*models
 	// This actions will be global, meaning has to be attached to all resources
 	conditionValues := map[string][]string{
 		condition.AWSUsername.Name(): {session.AccountAccessKey},
-		// All calls to MinIO from console use temporary credentials.
+		// All calls to Hanzo S3 from console use temporary credentials.
 		condition.AWSPrincipalType.Name():   {"AssumeRole"},
 		condition.AWSSecureTransport.Name(): {strconv.FormatBool(getMinIOEndpointIsSecure())},
 		condition.AWSCurrentTime.Name():     {currTime.Format(time.RFC3339)},

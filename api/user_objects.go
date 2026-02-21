@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -929,7 +929,7 @@ func getUploadObjectResponse(session *models.Principal, params objectApi.PostBuc
 	return nil
 }
 
-// uploadFiles gets files from http.Request form and uploads them to MinIO
+// uploadFiles gets files from http.Request form and uploads them to Hanzo S3
 func uploadFiles(ctx context.Context, client MinioClient, params objectApi.PostBucketsBucketNameObjectsUploadParams) error {
 	var prefix string
 	if params.Prefix != nil {

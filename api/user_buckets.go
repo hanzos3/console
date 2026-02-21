@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -187,7 +187,7 @@ func getBucketVersionedResponse(session *models.Principal, params bucketApi.GetB
 	return bucketVResponse, nil
 }
 
-// getAccountBuckets fetches a list of all buckets allowed to that particular client from MinIO Servers
+// getAccountBuckets fetches a list of all buckets allowed to that particular client from Hanzo S3 Servers
 func getAccountBuckets(ctx context.Context, client MinioAdmin) ([]*models.Bucket, error) {
 	info, err := client.AccountInfo(ctx)
 	if err != nil {

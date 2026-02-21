@@ -1,16 +1,16 @@
-# Systemd service for MinIO Console
+# Systemd service for Hanzo Space Console
 
-Systemd script for MinIO Console.
+Systemd script for Hanzo Space Console.
 
 ## Installation
 
 - Systemd script is configured to run the binary from /usr/local/bin/.
 - Systemd script is configured to run the binary as `console-user`, make sure you create this user prior using service script.
-- Download the binary. Find the relevant links for the binary https://github.com/minio/console#binary-releases.
+- Download the binary. Find the relevant links for the binary https://github.com/hanzos3/console#binary-releases.
 
 ## Create the Environment configuration file
 
-This file serves as input to MinIO Console systemd service.
+This file serves as input to Hanzo Space Console systemd service.
 
 ```sh
 $ cat <<EOT >> /etc/default/minio-console
@@ -23,7 +23,7 @@ CONSOLE_PBKDF_PASSPHRASE=CHANGEME
 # required to encrypt JWT payload
 CONSOLE_PBKDF_SALT=CHANGEME
 
-# MinIO Endpoint
+# Hanzo S3 Endpoint
 CONSOLE_MINIO_SERVER=http://minio.endpoint:9000
 
 EOT
@@ -34,7 +34,7 @@ EOT
 Download `minio-console.service` in  `/etc/systemd/system/`
 
 ```
-( cd /etc/systemd/system/; curl -O https://raw.githubusercontent.com/minio/console/master/systemd/minio-console.service )
+( cd /etc/systemd/system/; curl -O https://raw.githubusercontent.com/hanzos3/console/master/systemd/minio-console.service )
 ```
 
 Enable startup on boot

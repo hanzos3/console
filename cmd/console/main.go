@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -97,13 +97,13 @@ func newApp(name string) *cli.App {
 	app := cli.NewApp()
 	app.Name = name
 	app.Version = pkg.Version + " - " + pkg.ShortCommitID
-	app.Author = "MinIO, Inc."
-	app.Usage = "MinIO Console Server"
-	app.Description = `MinIO Console Server`
-	app.Copyright = "(c) 2021 MinIO, Inc."
+	app.Author = "Hanzo AI, Inc."
+	app.Usage = "Hanzo Space Console Server"
+	app.Description = `Hanzo Space Console Server`
+	app.Copyright = "(c) 2021 Hanzo AI, Inc."
 	app.Compiled, _ = time.Parse(time.RFC3339, pkg.ReleaseTime)
 	app.Commands = commands
-	app.HideHelpCommand = true // Hide `help, h` command, we already have `minio --help`.
+	app.HideHelpCommand = true // Hide `help, h` command, we already have `console --help`.
 	app.CustomAppHelpTemplate = consoleHelpTemplate
 	app.CommandNotFound = func(_ *cli.Context, command string) {
 		console.Printf("‘%s’ is not a console sub-command. See ‘console --help’.\n", command)

@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -16,5 +16,5 @@
 
 package auth
 
-// GetCredentialsFromLDAP authenticates the user against MinIO when the LDAP integration is enabled
+// GetCredentialsFromLDAP authenticates the user against Hanzo S3 when the LDAP integration is enabled
 // if the authentication succeed *credentials.Login object is returned and we continue with the normal STSAssumeRole flow

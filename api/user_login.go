@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -57,7 +57,7 @@ func registerLoginHandlers(api *operations.ConsoleAPI) {
 	})
 }
 
-// login performs a check of ConsoleCredentials against MinIO, generates some claims and returns the jwt
+// login performs a check of ConsoleCredentials against Hanzo S3, generates some claims and returns the jwt
 // for subsequent authentication
 func login(credentials ConsoleCredentialsI, sessionFeatures *auth.SessionFeatures) (*string, error) {
 	// try to obtain consoleCredentials,
@@ -149,7 +149,7 @@ func getLoginResponse(params authApi.LoginParams) (*models.LoginResponse, *Coded
 	return loginResponse, nil
 }
 
-// isKubernetes returns true if minio is running in kubernetes.
+// isKubernetes returns true if Hanzo S3 is running in kubernetes.
 func isKubernetes() bool {
 	// Kubernetes env used to validate if we are
 	// indeed running inside a kubernetes pod

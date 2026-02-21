@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -70,7 +70,7 @@ func getUpdateReaderFromURL(u string, transport http.RoundTripper) (io.ReadClose
 const defaultPubKey = "RWTx5Zr1tiHQLwG9keckT0c45M3AGeHD6IvimQHpyRywVWGbP1aVSGav"
 
 func getLatestRelease(tr http.RoundTripper) (string, error) {
-	releaseURL := "https://api.github.com/repos/minio/console/releases/latest"
+	releaseURL := "https://api.github.com/repos/hanzos3/console/releases/latest"
 
 	body, _, err := getUpdateReaderFromURL(releaseURL, tr)
 	if err != nil {

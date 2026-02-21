@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -200,7 +200,7 @@ type User struct {
 type StateKeyFunc func() []byte
 
 // VerifyIdentity will contact the configured IDP to the user identity based on the authorization code and state
-// if the user is valid, then it will contact MinIO to get valid sts credentials based on the identity provided by the IDP
+// if the user is valid, then it will contact Hanzo S3 to get valid sts credentials based on the identity provided by the IDP
 func (client *Provider) VerifyIdentity(ctx context.Context, code, state, roleARN string, keyFunc StateKeyFunc) (*credentials.Credentials, error) {
 	// verify the provided state is valid (prevents CSRF attacks)
 	if err := validateOauth2State(state, keyFunc); err != nil {

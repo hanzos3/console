@@ -1,4 +1,4 @@
-# MinIO Console Server Contribution Guide [![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io)
+# Hanzo Space Console Contribution Guide [![Slack](https://hanzo.space/community/slack?type=svg)](https://hanzo.space/community)
 
 This is a REST portal server created using [go-swagger](https://github.com/go-swagger/go-swagger)
 
@@ -67,7 +67,7 @@ request. After a Pull Request gets peer reviewed and approved, it will be merged
 
 ### How does ``console`` manages dependencies?
 
-``MinIO`` uses `go mod` to manage its dependencies.
+``Hanzo S3`` uses `go mod` to manage its dependencies.
 
 - Run `go get foo/bar` in the source folder to add the dependency to `go.mod` file.
 
@@ -80,4 +80,4 @@ To remove a dependency
 
 ``console`` is fully conformant with Golang style.
 Refer: [Effective Go](https://github.com/golang/go/wiki/CodeReviewComments) article from Golang project. If you observe
-offending code, please feel free to send a pull request or ping us on [Slack](https://slack.min.io).
+offending code, please feel free to send a pull request or ping us on [Slack](https://hanzo.space/community).

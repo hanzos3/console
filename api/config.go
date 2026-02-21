@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -58,7 +58,7 @@ var (
 	// GlobalTLSCertsManager custom TLS Manager for SNI support
 	GlobalTLSCertsManager *xcerts.Manager
 	// GlobalTransport is common transport used for all HTTP calls, this is set via
-	// MinIO server to be the correct transport, however we still define some defaults
+	// Hanzo S3 server.to be the correct transport, however we still define some defaults
 	// here just in case.
 	GlobalTransport = &http.Transport{
 		Proxy: http.ProxyFromEnvironment,
@@ -77,21 +77,21 @@ var (
 			// Can't use TLSv1.0 because of POODLE and BEAST using CBC cipher
 			// Can't use TLSv1.1 because of RC4 cipher usage
 			MinVersion: tls.VersionTLS12,
-			// Console runs in the same pod/node as MinIO this is acceptable.
+			// Console runs in the same pod/node as Hanzo S3 this is acceptable.
 			InsecureSkipVerify: true,
 			RootCAs:            GlobalRootCAs,
 		},
 	}
 )
 
-// MinIOConfig represents application configuration passed in from the MinIO
+// MinIOConfig represents application configuration passed in from the Hanzo S3
 // server to the console.
 type MinIOConfig struct {
 	OpenIDProviders oauth2.OpenIDPCfg
 }
 
 // GlobalMinIOConfig is the global application configuration passed in from the
-// MinIO server.
+// Hanzo S3 server.
 var GlobalMinIOConfig MinIOConfig
 
 func getMinIOServer() string {

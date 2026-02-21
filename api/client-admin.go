@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -33,7 +33,7 @@ import (
 	"github.com/minio/minio-go/v7/pkg/credentials"
 )
 
-const globalAppName = "MinIO Console"
+const globalAppName = "Hanzo Space Console"
 
 // MinioAdmin interface with all functions to be implemented
 // by mock when testing, it should include all MinioAdmin respective api calls

@@ -5,7 +5,7 @@
 Bug Fix:
 
 - Updated some project dependencies for vulnerabilities
-- Updated doc links to new MinIO docs site
+- Updated doc links to new Hanzo S3 docs site
 - Fixed an issue with object download in Download preview page
 
 Changes:
@@ -55,9 +55,9 @@ Bug Fix:
 
 Deprecations:
 
-- Deprecated support of accounts & policies management, this can be managed by using mc admin commands. Please refer to the [MinIO User Management page](https://docs.min.io/community/minio-object-store/administration/identity-access-management/minio-user-management.html#id1) for more information.
-- Deprecated support of bucket management, this can be managed by using mc commands. Please refer to the [MinIO Client](https://docs.min.io/community/minio-object-store/reference/minio-mc.html) for more information.
-- Deprecated support of configuration management, this can be managed by using mc admin config commands. Please refer to the [MinIO Client](https://docs.min.io/community/minio-object-store/reference/minio-mc.html) for more information.
+- Deprecated support of accounts & policies management, this can be managed by using mc admin commands. Please refer to the [Hanzo S3 User Management page](https://docs.hanzo.space/administration/identity-access-management/minio-user-management.html#id1) for more information.
+- Deprecated support of bucket management, this can be managed by using mc commands. Please refer to the [Hanzo S3 Client](https://docs.hanzo.space/reference/minio-mc.html) for more information.
+- Deprecated support of configuration management, this can be managed by using mc admin config commands. Please refer to the [Hanzo S3 Client](https://docs.hanzo.space/reference/minio-mc.html) for more information.
 
 
 ## Release v1.7.6
@@ -80,9 +80,9 @@ Bug Fix:
 
 Deprecations:
 
-- Deprecated support tools User Interface in favor of mc admin commands. Please refer to the [MinIO Client documentation page](https://docs.min.io/community/minio-object-store/reference/minio-mc.html) for more information.
-- Deprecated Site replication User Interface in favor of mc admin commands. Please refer to the [MinIO Site Replication page](https://docs.min.io/community/minio-object-store/reference/minio-mc-admin/mc-admin-replicate.html) for more information.
-- Deprecated Lifecycle & Tiers User Interface in favor of mc admin commands. Please refer to the [MinIO Tiers page](https://docs.min.io/community/minio-object-store/reference/minio-mc/mc-ilm-tier.html) for more information.
+- Deprecated support tools User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Client documentation page](https://docs.hanzo.space/reference/minio-mc.html) for more information.
+- Deprecated Site replication User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Site Replication page](https://docs.hanzo.space/reference/minio-mc-admin/mc-admin-replicate.html) for more information.
+- Deprecated Lifecycle & Tiers User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Tiers page](https://docs.hanzo.space/reference/minio-mc/mc-ilm-tier.html) for more information.
 
 Bug Fix:
 
@@ -119,14 +119,14 @@ Bug Fix:
 
 Additional Changes:
 
-- Added debug logging for console HTTP request (see [PR #3440](https://github.com/minio/console/pull/3440) for more detailed information)
+- Added debug logging for console HTTP request (see [PR #3440](https://github.com/hanzos3/console/pull/3440) for more detailed information)
 
 ## Release v1.7.0
 
 Bug Fix:
 
 - Fixed directory listing
-- Fix MinIO videos link
+- Fix Hanzo S3 videos link
 
 Additional Changes:
 
@@ -149,7 +149,7 @@ Additional Changes:
 
 - Improved Drives List visualization
 - Improved WS request logic
-- Updated License page with current MinIO plans.
+- Updated License page with current Hanzo S3 plans.
 
 ## Release v1.6.1
 
@@ -218,7 +218,7 @@ Bug Fix:
 - Fixed vulnerability
 - Used URL-safe base64 enconding for Share API
 - Made Prefix field optional when Adding Tier
-- Added Console user agent in MinIO Admin Client
+- Added Console user agent in Hanzo S3 Admin Client
 
 ## Release v1.2.0
 
@@ -399,7 +399,7 @@ Features:
 
 Bug Fix:
 
-- Disabled input fields for Subscription features if MinIO is not registered
+- Disabled input fields for Subscription features if Hanzo S3 is not registered
 
 ## Release v0.36.0
 
@@ -496,7 +496,7 @@ Bug Fix:
 
 Features:
 
-- Added MinIO Console Help Menu
+- Added Hanzo Space Console Help Menu
 - Updated UI Menu components
 
 Bug Fix:

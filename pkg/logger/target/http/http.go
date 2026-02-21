@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2022 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2022 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -87,7 +87,7 @@ func (h *Target) Init() error {
 
 	req.Header.Set(xhttp.ContentType, "application/json")
 
-	// Set user-agent to indicate MinIO release
+	// Set user-agent to indicate Hanzo S3 release
 	// version to the configured log endpoint
 	req.Header.Set("User-Agent", h.config.UserAgent)
 
@@ -141,7 +141,7 @@ func (h *Target) logEntry(entry interface{}) {
 	}
 	req.Header.Set(xhttp.ContentType, "application/json")
 
-	// Set user-agent to indicate MinIO release
+	// Set user-agent to indicate Hanzo S3 release
 	// version to the configured log endpoint
 	req.Header.Set("User-Agent", h.config.UserAgent)
 

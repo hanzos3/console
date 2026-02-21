@@ -3,8 +3,8 @@ GOPATH := $(shell go env GOPATH)
 # Sets the build version based on the output of the following command, if we are building for a tag, that's the build else it uses the current git branch as the build
 BUILD_VERSION:=$(shell git describe --exact-match --tags $(git log -n1 --pretty='%h') 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null)
 BUILD_TIME:=$(shell date 2>/dev/null)
-TAG ?= "minio/console:$(BUILD_VERSION)-dev"
-MINIO_VERSION ?= "quay.io/minio/minio:latest"
+TAG ?= "hanzoai/space-console:$(BUILD_VERSION)-dev"
+MINIO_VERSION ?= "ghcr.io/hanzoai/s3:latest"
 TARGET_BUCKET ?= "target"
 NODE_VERSION := $(shell cat .nvmrc)
 
@@ -75,13 +75,13 @@ test-integration:
 	@(docker stop minio || true)
 	@(docker stop minio2 || true)
 	@(docker network rm mynet123 || true)
-	@echo "create docker network to communicate containers MinIO & PostgreSQL"
+	@echo "create docker network to communicate containers Hanzo S3 & PostgreSQL"
 	@(docker network create --subnet=173.18.0.0/29 mynet123)
-	@echo "docker run with MinIO Version below:"
+	@echo "docker run with Hanzo S3 Version below:"
 	@echo $(MINIO_VERSION)
-	@echo "MinIO 1"
+	@echo "Hanzo S3 1"
 	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 --net=mynet123 -d --name minio --rm -p 9000:9000 -p 9091:9091 -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= $(MINIO_VERSION) server /data{1...4} --console-address ':9091' && sleep 5)
-	@echo "MinIO 2"
+	@echo "Hanzo S3 2"
 	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 --net=mynet123 -d --name minio2 --rm -p 9001:9001 -p 9092:9092 -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= $(MINIO_VERSION) server /data{1...4} --address ':9001' --console-address ':9092' && sleep 5)
 	@echo "Postgres"
 	@(docker run --net=mynet123 --ip=173.18.0.4 --name pgsqlcontainer --rm -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres && sleep 5)
@@ -141,27 +141,27 @@ test-replication:
 	@(docker network rm mynet123 || true)
 
 test-permissions-1:
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 quay.io/minio/minio:latest server /data{1...4})
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 ghcr.io/hanzoai/s3:latest server /data{1...4})
 	@(env bash $(PWD)/web-app/tests/scripts/permissions.sh "web-app/tests/permissions-1/")
 	@(docker stop minio)
 
 test-permissions-2:
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 quay.io/minio/minio:latest server /data{1...4})
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 ghcr.io/hanzoai/s3:latest server /data{1...4})
 	@(env bash $(PWD)/web-app/tests/scripts/permissions.sh "web-app/tests/permissions-2/")
 	@(docker stop minio)
 
 test-permissions-3:
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 quay.io/minio/minio:latest server /data{1...4})
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 ghcr.io/hanzoai/s3:latest server /data{1...4})
 	@(env bash $(PWD)/web-app/tests/scripts/permissions.sh "web-app/tests/permissions-3/")
 	@(docker stop minio)
 
 test-permissions-4:
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 quay.io/minio/minio:latest server /data{1...4})
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 ghcr.io/hanzoai/s3:latest server /data{1...4})
 	@(env bash $(PWD)/web-app/tests/scripts/permissions.sh "web-app/tests/permissions-4/")
 	@(docker stop minio)
 
 test-permissions-6:
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 quay.io/minio/minio:latest server /data{1...4})
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 ghcr.io/hanzoai/s3:latest server /data{1...4})
 	@(env bash $(PWD)/web-app/tests/scripts/permissions.sh "web-app/tests/permissions-6/")
 	@(docker stop minio)
 
@@ -169,7 +169,7 @@ test-apply-permissions:
 	@(env bash $(PWD)/web-app/tests/scripts/initialize-env.sh)
 
 test-start-docker-minio:
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 quay.io/minio/minio:latest server /data{1...4})
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 -d --name minio --rm -p 9000:9000 ghcr.io/hanzoai/s3:latest server /data{1...4})
 
 initialize-permissions: test-start-docker-minio test-apply-permissions
 	@echo "Done initializing permissions test"
@@ -187,7 +187,7 @@ test-start-docker-minio-w-redirect-url: initialize-docker-network
     -e MINIO_SERVER_URL='http://localhost:9000' \
     -v /data1 -v /data2 -v /data3 -v /data4 \
     -d --network host --name minio --rm\
-    quay.io/minio/minio:latest server /data{1...4})
+    ghcr.io/hanzoai/s3:latest server /data{1...4})
 
 test-start-docker-nginx-w-subpath:
 	@(docker run \

@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -131,8 +131,7 @@ const Login = () => {
       );
   }
 
-  let docsURL =
-    "https://docs.min.io/community/minio-object-store/index.html?ref=con";
+  let docsURL = "https://docs.hanzo.space";
 
   useEffect(() => {
     dispatch(setHelpName("login"));
@@ -162,7 +161,7 @@ const Login = () => {
             </a>
             <span className={"separator"}>|</span>
             <a
-              href="https://github.com/minio/minio"
+              href="https://github.com/hanzoai/s3"
               target="_blank"
               rel="noopener"
             >
@@ -170,7 +169,7 @@ const Login = () => {
             </a>
             <span className={"separator"}>|</span>
             <a
-              href="https://subnet.min.io/?ref=con"
+              href="https://hanzo.space/support"
               target="_blank"
               rel="noopener"
             >
@@ -178,7 +177,7 @@ const Login = () => {
             </a>
             <span className={"separator"}>|</span>
             <a
-              href="https://min.io/download/?ref=con"
+              href="https://hanzo.space/download"
               target="_blank"
               rel="noopener"
             >
@@ -191,13 +190,12 @@ const Login = () => {
         }
         promoInfo={
           <span style={{ fontSize: 14, lineHeight: 1 }}>
-            MinIO is a cloud-native object store built to run on any
-            infrastructure - public, private or edge clouds. Primary use cases
-            include data lakes, databases, AI/ML, SaaS applications and fast
-            backup & recovery. MinIO is dual licensed under GNU AGPL v3 and
-            commercial license. To learn more, visit{" "}
-            <a href={"https://min.io/?ref=con"} target="_blank" rel="noopener">
-              www.min.io
+            Hanzo S3 is a high-performance, S3-compatible object store built to
+            run on any infrastructure - public, private or edge clouds. Primary
+            use cases include data lakes, databases, AI/ML, SaaS applications
+            and fast backup & recovery. To learn more, visit{" "}
+            <a href={"https://hanzo.space"} target="_blank" rel="noopener">
+              hanzo.space
             </a>
             .
           </span>

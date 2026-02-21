@@ -2,13 +2,13 @@
 
 ## Supported Versions
 
-We always provide security updates for the [latest release](https://github.com/minio/console/releases/latest).
+We always provide security updates for the [latest release](https://github.com/hanzos3/console/releases/latest).
 Whenever there is a security update you just need to upgrade to the latest version.
 
 ## Reporting a Vulnerability
 
-All security bugs in [minio/console](https://github,com/minio/console) (or other minio/* repositories)
-should be reported by email to security@min.io. Your email will be acknowledged within 48 hours,
+All security bugs in [hanzos3/console](https://github.com/hanzos3/console) (or other hanzos3/* repositories)
+should be reported by email to security@hanzo.ai. Your email will be acknowledged within 48 hours,
 and you'll receive a more detailed response to your email within 72 hours indicating the next steps
 in handling your report.
 
@@ -19,13 +19,13 @@ you need access credentials for a successful exploit).
 If you have not received a reply to your email within 48 hours or you have not heard from the security team
 for the past five days please contact the security team directly:
 
-- Primary security coordinator: daniel@min.io
-- Secondary coordinator: security@min.io
-- If you receive no response: dev@min.io
+- Primary security coordinator: security@hanzo.ai
+- Secondary coordinator: security@hanzo.ai
+- If you receive no response: dev@hanzo.ai
 
 ### Disclosure Process
 
-MinIO Console uses the following disclosure process:
+Hanzo Space Console uses the following disclosure process:
 
 1. Once the security report is received one member of the security team tries to verify and reproduce
    the issue and determines the impact it has.
@@ -33,9 +33,9 @@ MinIO Console uses the following disclosure process:
    If the report is rejected the response explains why.
 3. Code is audited to find any potential similar problems.
 4. Fixes are prepared for the latest release.
-5. On the date that the fixes are applied a security advisory will be published on https://blog.min.io.
-   Please inform us in your report email whether MinIO Console should mention your contribution w.r.t. fixing
-   the security issue. By default MinIO Console will **not** publish this information to protect your privacy.
+5. On the date that the fixes are applied a security advisory will be published on https://hanzo.ai/blog.
+   Please inform us in your report email whether Hanzo Space Console should mention your contribution w.r.t. fixing
+   the security issue. By default Hanzo Space Console will **not** publish this information to protect your privacy.
 
 This process can take some time, especially when coordination is required with maintainers of other projects.
 Every effort will be made to handle the bug in as timely a manner as possible, however it's important that we

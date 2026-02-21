@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -358,11 +358,11 @@ func newMinioClient(claims *models.Principal, clientIP string) (*minio.Client, e
 		return nil, err
 	}
 	// set user-agent to differentiate Console UI requests for auditing.
-	minioClient.SetAppInfo("MinIO Console", pkg.Version)
+	minioClient.SetAppInfo("Hanzo Space Console", pkg.Version)
 	return minioClient, nil
 }
 
-// computeObjectURLWithoutEncode returns a MinIO url containing the object filename without encoding
+// computeObjectURLWithoutEncode returns a Hanzo S3 url containing the object filename without encoding
 func computeObjectURLWithoutEncode(bucketName, prefix string) (string, error) {
 	u, err := xnet.ParseHTTPURL(getMinIOServer())
 	if err != nil {

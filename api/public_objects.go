@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2024 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2024 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -103,7 +103,7 @@ func decodeMinIOStringURL(inputURL string) (*string, error) {
 	if err != nil {
 		return nil, err
 	}
-	// Ensure incoming url points to MinIO Server
+	// Ensure incoming url points to Hanzo S3 Server
 	minIOHost := getMinIOEndpoint()
 	if parsedURL.Host != minIOHost {
 		return nil, ErrForbidden

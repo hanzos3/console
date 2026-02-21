@@ -1,5 +1,5 @@
-//  This file is part of MinIO Console Server
-//  Copyright (c) 2022 MinIO, Inc.
+//  This file is part of Hanzo Space Console
+//  Copyright (c) 2022 Hanzo AI, Inc.
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU Affero General Public License as published by
@@ -110,7 +110,7 @@ const LicensePlans = () => {
 
   const getButton = (link: string, btnText: string, variant: any) => {
     let linkToNav =
-      currentPlan !== "community" ? "https://subnet.min.io" : link;
+      currentPlan !== "community" ? "https://hanzo.space/support" : link;
     return (
       <Button
         id={`license-action-${link}`}
@@ -205,7 +205,7 @@ const LicensePlans = () => {
             >
               {element &&
                 getButton(
-                  `https://min.io/signup`,
+                  `https://hanzo.space/signup`,
                   element.planType === "commercial" ? "Upgrade" : "Join Slack",
                   element.planType === "commercial" ? "callAction" : "regular",
                 )}

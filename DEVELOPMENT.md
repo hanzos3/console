@@ -1,9 +1,9 @@
-# Developing MinIO Console
+# Developing Hanzo Space Console
 
-The MinIO Console requires the [MinIO Server](https://github.com/minio/minio). For development purposes, you also need
-to run both the MinIO Console web app and the MinIO Console server.
+The Hanzo Space Console requires the [Hanzo S3 Server](https://github.com/hanzoai/s3). For development purposes, you also need
+to run both the Hanzo Space Console web app and the Hanzo Space Console server.
 
-## Running MinIO Console server
+## Running Hanzo Space Console server
 
 Build the server in the main folder by running:
 
@@ -23,18 +23,18 @@ CONSOLE_DEV_MODE=on
 ./console server
 ```
 
-## Running MinIO Console web app
+## Running Hanzo Space Console web app
 
 Refer to `/web-app` [instructions](/web-app/README.md) to run the web app locally.
 
-# Building with MinIO
+# Building with Hanzo S3
 
-To test console in its shipping format, you need to build it from the MinIO repository, the following step will guide
+To test console in its shipping format, you need to build it from the Hanzo S3 repository, the following step will guide
 you to do that.
 
 ### 0. Building with UI Changes
 
-If you are performing changes in the UI components of console and want to test inside the MinIO binary, you need to
+If you are performing changes in the UI components of console and want to test inside the Hanzo S3 binary, you need to
 build assets first.
 
 In the console folder run
@@ -43,35 +43,35 @@ In the console folder run
 make assets
 ```
 
-This will regenerate all the static assets that will be served by MinIO.
+This will regenerate all the static assets that will be served by Hanzo S3.
 
-### 1. Clone the `MinIO` repository
+### 1. Clone the `Hanzo S3` repository
 
-In the parent folder of where you cloned this `console` repository, clone the MinIO Repository
+In the parent folder of where you cloned this `console` repository, clone the Hanzo S3 Repository
 
 ```shell
-git clone https://github.com/minio/minio.git
+git clone https://github.com/hanzoai/s3.git
 ```
 
 ### 2. Update `go.mod` to use your local version
 
-In the MinIO repository open `go.mod` and after the first `require()` directive add a `replace()` directive
+In the Hanzo S3 repository open `go.mod` and after the first `require()` directive add a `replace()` directive
 
 ```
 ...
 )
 
 replace (
-github.com/minio/console => "../console"
+github.com/hanzos3/console => "../console"
 )
 
 require (
 ...
 ```
 
-### 3. Build `MinIO`
+### 3. Build `Hanzo S3`
 
-Still in the MinIO folder, run
+Still in the Hanzo S3 folder, run
 
 ```shell
 make build
@@ -120,7 +120,7 @@ Re-enter new password:
 Enter LDAP Password:
 ```
 
-### Add the consoleAdmin policy to user billy on MinIO
+### Add the consoleAdmin policy to user billy on Hanzo S3
 
 ```
 $ cat > consoleAdmin.json << EOF
@@ -151,7 +151,7 @@ $ mc admin policy create myminio consoleAdmin consoleAdmin.json
 $ mc admin policy attach myminio consoleAdmin --user="uid=billy,dc=example,dc=org"
 ```
 
-## Run MinIO
+## Run Hanzo S3
 
 ```
 export MINIO_ACCESS_KEY=minio

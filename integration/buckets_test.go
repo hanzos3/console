@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -58,7 +58,7 @@ func initConsoleServer() (*api.Server, error) {
 		// nothing to log
 	}
 
-	// Initialize MinIO loggers
+	// Initialize Hanzo S3 loggers
 	api.LogInfo = noLog
 	api.LogError = noLog
 

@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2023 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2023 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -60,7 +60,7 @@ const MenuWrapper = () => {
             name={"Documentation"}
             icon={<DocumentationIcon />}
             path={
-              "https://docs.min.io/community/minio-object-store/index.html?ref=con"
+              "https://docs.hanzo.space"
             }
           />
           <MenuItem

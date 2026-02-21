@@ -1,5 +1,5 @@
-// This file is part of MinIO Console Server
-// Copyright (c) 2021 MinIO, Inc.
+// This file is part of Hanzo Space Console
+// Copyright (c) 2021 Hanzo AI, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -34,7 +34,7 @@ import (
 var serverCmd = cli.Command{
 	Name:    "server",
 	Aliases: []string{"srv"},
-	Usage:   "Start MinIO Console server",
+	Usage:   "Start Hanzo Space Console server",
 	Action:  StartServer,
 	Flags: []cli.Flag{
 		cli.StringFlag{
@@ -103,7 +103,7 @@ func buildServer() (*api.Server, error) {
 	server := api.NewServer(consoleAPI)
 
 	parser := flags.NewParser(server, flags.Default)
-	parser.ShortDescription = "MinIO Console Server"
+	parser.ShortDescription = "Hanzo Space Console Server"
 	parser.LongDescription = swaggerSpec.Spec().Info.Description
 
 	server.ConfigureFlags()
