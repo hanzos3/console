@@ -38,7 +38,7 @@ All `console` needs is a Hanzo S3 user with admin privileges and URL pointing to
 ### 1. Create a user `console` using `mc`
 
 ```bash
-mc admin user add myminio/
+s3 admin user add myminio/
 Enter Access Key: console
 Enter Secret Key: xxxxxxxx
 ```
@@ -72,13 +72,13 @@ EOF
 ```
 
 ```sh
-mc admin policy create myminio/ consoleAdmin admin.json
+s3 admin policy create myminio/ consoleAdmin admin.json
 ```
 
 ### 3. Set the policy for the new `console` user
 
 ```sh
-mc admin policy attach myminio consoleAdmin --user=console
+s3 admin policy attach myminio consoleAdmin --user=console
 ```
 
 > [!NOTE]
