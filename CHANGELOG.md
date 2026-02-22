@@ -81,8 +81,8 @@ Bug Fix:
 Deprecations:
 
 - Deprecated support tools User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Client documentation page](https://docs.hanzo.space/reference/s3-cli.html) for more information.
-- Deprecated Site replication User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Site Replication page](https://docs.hanzo.space/reference/minio-mc-admin/mc-admin-replicate.html) for more information.
-- Deprecated Lifecycle & Tiers User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Tiers page](https://docs.hanzo.space/reference/minio-mc/mc-ilm-tier.html) for more information.
+- Deprecated Site replication User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Site Replication page](https://docs.hanzo.space/reference/s3-admin/mc-admin-replicate.html) for more information.
+- Deprecated Lifecycle & Tiers User Interface in favor of mc admin commands. Please refer to the [Hanzo S3 Tiers page](https://docs.hanzo.space/reference/s3-cli/mc-ilm-tier.html) for more information.
 
 Bug Fix:
 
