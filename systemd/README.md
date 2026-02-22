@@ -13,7 +13,7 @@ Systemd script for Hanzo Space Console.
 This file serves as input to Hanzo Space Console systemd service.
 
 ```sh
-$ cat <<EOT >> /etc/default/minio-console
+$ cat <<EOT >> /etc/default/hanzo-space-console
 # Special opts
 CONSOLE_OPTS="--port 8443"
 
@@ -31,20 +31,20 @@ EOT
 
 ## Systemctl
 
-Download `minio-console.service` in  `/etc/systemd/system/`
+Download `hanzo-space-console.service` in  `/etc/systemd/system/`
 
 ```
-( cd /etc/systemd/system/; curl -O https://raw.githubusercontent.com/hanzos3/console/master/systemd/minio-console.service )
+( cd /etc/systemd/system/; curl -O https://raw.githubusercontent.com/hanzos3/console/master/systemd/hanzo-space-console.service )
 ```
 
 Enable startup on boot
 
 ```
-systemctl enable minio-console.service
+systemctl enable hanzo-space-console.service
 ```
 
 ## Note
 
-- Replace ``User=console-user`` and ``Group=console-user`` in minio-console.service file with your local setup.
+- Replace ``User=console-user`` and ``Group=console-user`` in hanzo-space-console.service file with your local setup.
 - Ensure that ``CONSOLE_PBKDF_PASSPHRASE`` and ``CONSOLE_PBKDF_SALT`` are set to appropriate values.
 - Ensure that ``CONSOLE_MINIO_SERVER`` is set to appropriate server endpoint.
