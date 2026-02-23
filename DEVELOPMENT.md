@@ -18,7 +18,7 @@ make
 ```
 CONSOLE_ACCESS_KEY=<your-access-key>
 CONSOLE_SECRET_KEY=<your-secret-key>
-CONSOLE_MINIO_SERVER=<minio-server-endpoint>
+CONSOLE_S3_SERVER=<minio-server-endpoint>
 CONSOLE_DEV_MODE=on
 ./console server
 ```
@@ -154,13 +154,13 @@ $ mc admin policy attach myminio consoleAdmin --user="uid=billy,dc=example,dc=or
 ## Run Hanzo S3
 
 ```
-export MINIO_ACCESS_KEY=minio
-export MINIO_SECRET_KEY=minio123
-export MINIO_IDENTITY_LDAP_SERVER_ADDR='localhost:389'
-export MINIO_IDENTITY_LDAP_USERNAME_FORMAT='uid=%s,dc=example,dc=org'
-export MINIO_IDENTITY_LDAP_USERNAME_SEARCH_FILTER='(|(objectclass=posixAccount)(uid=%s))'
-export MINIO_IDENTITY_LDAP_TLS_SKIP_VERIFY=on
-export MINIO_IDENTITY_LDAP_SERVER_INSECURE=on
+export S3_ACCESS_KEY=minio
+export S3_SECRET_KEY=minio123
+export S3_IDENTITY_LDAP_SERVER_ADDR='localhost:389'
+export S3_IDENTITY_LDAP_USERNAME_FORMAT='uid=%s,dc=example,dc=org'
+export S3_IDENTITY_LDAP_USERNAME_SEARCH_FILTER='(|(objectclass=posixAccount)(uid=%s))'
+export S3_IDENTITY_LDAP_TLS_SKIP_VERIFY=on
+export S3_IDENTITY_LDAP_SERVER_INSECURE=on
 ./minio server ~/Data
 ```
 

@@ -138,7 +138,7 @@ export CONSOLE_PBKDF_PASSPHRASE=SECRET
 export CONSOLE_PBKDF_SALT=SECRET
 
 # Hanzo S3 Endpoint
-export CONSOLE_MINIO_SERVER=http://localhost:9000
+export CONSOLE_S3_SERVER=http://localhost:9000
 ```
 
 Now start the console service.
@@ -187,7 +187,7 @@ Following tree structure is expected for supporting multiple domains:
 Copy the Hanzo S3 `ca.crt` under `~/.console/certs/CAs`, then:
 
 ```sh
-export CONSOLE_MINIO_SERVER=https://localhost:9000
+export CONSOLE_S3_SERVER=https://localhost:9000
 ./console server
 ```
 

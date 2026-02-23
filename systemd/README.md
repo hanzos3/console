@@ -24,7 +24,7 @@ CONSOLE_PBKDF_PASSPHRASE=CHANGEME
 CONSOLE_PBKDF_SALT=CHANGEME
 
 # Hanzo S3 Endpoint
-CONSOLE_MINIO_SERVER=http://minio.endpoint:9000
+CONSOLE_S3_SERVER=http://minio.endpoint:9000
 
 EOT
 ```
@@ -47,4 +47,4 @@ systemctl enable hanzo-space-console.service
 
 - Replace ``User=console-user`` and ``Group=console-user`` in hanzo-space-console.service file with your local setup.
 - Ensure that ``CONSOLE_PBKDF_PASSPHRASE`` and ``CONSOLE_PBKDF_SALT`` are set to appropriate values.
-- Ensure that ``CONSOLE_MINIO_SERVER`` is set to appropriate server endpoint.
+- Ensure that ``CONSOLE_S3_SERVER`` is set to appropriate server endpoint.

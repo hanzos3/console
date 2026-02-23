@@ -47,7 +47,7 @@ func inspectHTTPResponse(httpResponse *http.Response) string {
 }
 
 func initConsoleServer() (*api.Server, error) {
-	// os.Setenv("CONSOLE_MINIO_SERVER", "localhost:9000")
+	// os.Setenv("CONSOLE_S3_SERVER", "localhost:9000")
 
 	swaggerSpec, err := loads.Embedded(api.SwaggerJSON, api.FlatSwaggerJSON)
 	if err != nil {

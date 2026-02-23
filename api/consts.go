@@ -19,8 +19,8 @@ package api
 // list of all console environment constants
 const (
 	// Constants for common configuration
-	ConsoleMinIOServer = "CONSOLE_MINIO_SERVER"
-	ConsoleMinIORegion = "CONSOLE_MINIO_REGION"
+	ConsoleMinIOServer = "CONSOLE_S3_SERVER"
+	ConsoleMinIORegion = "CONSOLE_S3_REGION"
 	ConsoleHostname    = "CONSOLE_HOSTNAME"
 	ConsolePort        = "CONSOLE_PORT"
 	ConsoleTLSPort     = "CONSOLE_TLS_PORT"

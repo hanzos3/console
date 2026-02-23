@@ -4,7 +4,7 @@ GOPATH := $(shell go env GOPATH)
 BUILD_VERSION:=$(shell git describe --exact-match --tags $(git log -n1 --pretty='%h') 2>/dev/null || git rev-parse --abbrev-ref HEAD 2>/dev/null)
 BUILD_TIME:=$(shell date 2>/dev/null)
 TAG ?= "hanzoai/space-console:$(BUILD_VERSION)-dev"
-MINIO_VERSION ?= "ghcr.io/hanzoai/s3:latest"
+S3_VERSION ?= "ghcr.io/hanzoai/s3:latest"
 TARGET_BUCKET ?= "target"
 NODE_VERSION := $(shell cat .nvmrc)
 
@@ -78,11 +78,11 @@ test-integration:
 	@echo "create docker network to communicate containers Hanzo S3 & PostgreSQL"
 	@(docker network create --subnet=173.18.0.0/29 mynet123)
 	@echo "docker run with Hanzo S3 Version below:"
-	@echo $(MINIO_VERSION)
+	@echo $(S3_VERSION)
 	@echo "Hanzo S3 1"
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 --net=mynet123 -d --name minio --rm -p 9000:9000 -p 9091:9091 -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= $(MINIO_VERSION) server /data{1...4} --console-address ':9091' && sleep 5)
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 --net=mynet123 -d --name minio --rm -p 9000:9000 -p 9091:9091 -e S3_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= $(S3_VERSION) server /data{1...4} --console-address ':9091' && sleep 5)
 	@echo "Hanzo S3 2"
-	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 --net=mynet123 -d --name minio2 --rm -p 9001:9001 -p 9092:9092 -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= $(MINIO_VERSION) server /data{1...4} --address ':9001' --console-address ':9092' && sleep 5)
+	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 --net=mynet123 -d --name minio2 --rm -p 9001:9001 -p 9092:9092 -e S3_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= $(S3_VERSION) server /data{1...4} --address ':9001' --console-address ':9092' && sleep 5)
 	@echo "Postgres"
 	@(docker run --net=mynet123 --ip=173.18.0.4 --name pgsqlcontainer --rm -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres && sleep 5)
 	@echo "execute test and get coverage for test-integration:"
@@ -104,10 +104,10 @@ test-replication:
 	  --rm \
 	  -p 9000:9000 \
 	  -p 6000:6000 \
-	  -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= \
-	  -e MINIO_ROOT_USER="minioadmin" \
-	  -e MINIO_ROOT_PASSWORD="minioadmin" \
-	  $(MINIO_VERSION) server /data{1...4} \
+	  -e S3_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= \
+	  -e S3_ROOT_USER="minioadmin" \
+	  -e S3_ROOT_PASSWORD="minioadmin" \
+	  $(S3_VERSION) server /data{1...4} \
 	  --address :9000 \
 	  --console-address :6000)
 	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 \
@@ -116,10 +116,10 @@ test-replication:
 	  --rm \
 	  -p 9001:9001 \
 	  -p 6001:6001 \
-	  -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= \
-	  -e MINIO_ROOT_USER="minioadmin" \
-	  -e MINIO_ROOT_PASSWORD="minioadmin" \
-	  $(MINIO_VERSION) server /data{1...4} \
+	  -e S3_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= \
+	  -e S3_ROOT_USER="minioadmin" \
+	  -e S3_ROOT_PASSWORD="minioadmin" \
+	  $(S3_VERSION) server /data{1...4} \
 	  --address :9001 \
 	  --console-address :6001)
 	@(docker run -v /data1 -v /data2 -v /data3 -v /data4 \
@@ -128,10 +128,10 @@ test-replication:
 	  --rm \
 	  -p 9002:9002 \
 	  -p 6002:6002 \
-	  -e MINIO_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= \
-	  -e MINIO_ROOT_USER="minioadmin" \
-	  -e MINIO_ROOT_PASSWORD="minioadmin" \
-	  $(MINIO_VERSION) server /data{1...4} \
+	  -e S3_KMS_SECRET_KEY=my-minio-key:OSMM+vkKUTCvQs9YL/CVMIMt43HFhkUpqJxTmGl6rYw= \
+	  -e S3_ROOT_USER="minioadmin" \
+	  -e S3_ROOT_PASSWORD="minioadmin" \
+	  $(S3_VERSION) server /data{1...4} \
 	  --address :9002 \
 	  --console-address :6002)
 	@(cd replication && go test -coverpkg=../api -c -tags testrunmain . && mkdir -p coverage && ./replication.test -test.v -test.run "^Test*" -test.coverprofile=coverage/replication.out)
@@ -183,8 +183,8 @@ initialize-docker-network:
 
 test-start-docker-minio-w-redirect-url: initialize-docker-network
 	@(docker run \
-    -e MINIO_BROWSER_REDIRECT_URL='http://localhost:8000/console/subpath/' \
-    -e MINIO_SERVER_URL='http://localhost:9000' \
+    -e S3_BROWSER_REDIRECT_URL='http://localhost:8000/console/subpath/' \
+    -e S3_SERVER_URL='http://localhost:9000' \
     -v /data1 -v /data2 -v /data3 -v /data4 \
     -d --network host --name minio --rm\
     ghcr.io/hanzoai/s3:latest server /data{1...4})

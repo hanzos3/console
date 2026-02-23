@@ -670,8 +670,8 @@ jobs:
           echo "Jumping back to console repository to run the integration test"
           cd $GITHUB_WORKSPACE;
           echo "We are going to use the built image on test-integration";
-          MINIO_VERSION="minio/minio:$VERSION";
-          echo $MINIO_VERSION;
+          S3_VERSION="minio/minio:$VERSION";
+          echo $S3_VERSION;
 
           echo "Create bucket for replication with versioning"
           echo "Download mc for Ubuntu"
@@ -680,7 +680,7 @@ jobs:
           chmod +x mc
 
           echo "Create the folder to put the all.out file"
-          make test-integration MINIO_VERSION=$MINIO_VERSION;
+          make test-integration S3_VERSION=$S3_VERSION;
 
       - uses: actions/cache@v4
         id: coverage-cache

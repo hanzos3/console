@@ -185,7 +185,7 @@ const EnvCertPassword = "CONSOLE_CERT_PASSWD"
 
 // LoadX509KeyPair - load an X509 key pair (private key , certificate)
 // from the provided paths. The private key may be encrypted and is
-// decrypted using the ENV_VAR: MINIO_CERT_PASSWD.
+// decrypted using the ENV_VAR: S3_CERT_PASSWD.
 func LoadX509KeyPair(certFile, keyFile string) (tls.Certificate, error) {
 	certPEMBlock, err := os.ReadFile(certFile)
 	if err != nil {
