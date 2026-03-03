@@ -54,8 +54,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: "yarn"
-          cache-dependency-path: web-app/yarn.lock
+          cache: "pnpm"
+          cache-dependency-path: web-app/pnpm-lock.yaml
       - uses: actions/cache@v4
         id: assets-cache-istanbul-coverage
         name: Assets Cache Istanbul Coverage
@@ -67,7 +67,7 @@ jobs:
         working-directory: ./web-app
         continue-on-error: false
         run: |
-          yarn install --immutable
+          pnpm install --frozen-lockfile
       - name: Check for Warnings in build output
         working-directory: ./web-app
         continue-on-error: false
@@ -177,15 +177,14 @@ jobs:
         run: |
           echo "Install dependencies"
           cd $GITHUB_WORKSPACE/web-app
-          yarn add -D playwright
-          yarn add -D @playwright/test
-          yarn add -D babel-plugin-istanbul
-          yarn add -D nyc
-          yarn add -D react-app-rewired
-          yarn add -D create-react-app
-          yarn init -y
-          echo "yarn install"
-          yarn install
+          pnpm add -D playwright
+          pnpm add -D @playwright/test
+          pnpm add -D babel-plugin-istanbul
+          pnpm add -D nyc
+          pnpm add -D react-app-rewired
+          pnpm add -D create-react-app
+          echo "pnpm install"
+          pnpm install
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -205,8 +204,8 @@ jobs:
         run: |
           echo "Run tests under playwright folder only"
           cd $GITHUB_WORKSPACE/web-app
-          yarn remove playwright
-          yarn add --dev @playwright/test
+          pnpm remove playwright
+          pnpm add --save-dev @playwright/test
           echo "npx playwright test"
           npx playwright test # To run the tests
           echo "npx nyc report"

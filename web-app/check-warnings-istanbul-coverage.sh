@@ -4,16 +4,16 @@ yell() { echo "$0: $*" >&2; }
 
 die() {
   yell "$*"
-  cat yarn.log
+  cat build.log
   exit 111
 }
 
-try() { "$@" &> yarn.log || die "cannot $*"; }
+try() { "$@" &> build.log || die "cannot $*"; }
 
-rm -f yarn.log
-try yarn buildistanbulcoverage
+rm -f build.log
+try pnpm buildistanbulcoverage
 
-if cat yarn.log | grep "Compiled with warnings"; then
+if cat build.log | grep "Compiled with warnings"; then
   echo "There are warnings in the code"
   exit 1
 fi

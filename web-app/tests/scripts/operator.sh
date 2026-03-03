@@ -38,11 +38,11 @@ __init__() {
   install_tenant
   echo "kubectl proxy"
   kubectl proxy &
-  echo "yarn start"
-  yarn start &
+  echo "pnpm start"
+  pnpm start &
   echo "console operator"
   ./console operator &
-  echo "DONE with kind, yarn and console, next is testcafe"
+  echo "DONE with kind, pnpm and console, next is testcafe"
   exit 0
 }
 

@@ -98,7 +98,7 @@ __init__() {
 }
 
 main() {
-  (yarn start &>/dev/null) &
+  (pnpm start &>/dev/null) &
   (./console server &>/dev/null) &
   (testcafe "firefox:headless" "$1" -q --skip-js-errors -c 3)
   cleanup

@@ -50,4 +50,4 @@ jobs:
         working-directory: ./web-app
         continue-on-error: false
         run: |
-          yarn npm audit --recursive --environment production --no-deprecations
+          pnpm audit --prod

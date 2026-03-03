@@ -77,8 +77,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NVMRC }}
-          cache: "yarn"
-          cache-dependency-path: web-app/yarn.lock
+          cache: "pnpm"
+          cache-dependency-path: web-app/pnpm-lock.yaml
       - uses: actions/cache@v4
         id: assets-cache
         name: Assets Cache
@@ -90,7 +90,7 @@ jobs:
         working-directory: ./web-app
         continue-on-error: false
         run: |
-          yarn install --immutable
+          pnpm install --frozen-lockfile
       - name: Check for Warnings in build output
         working-directory: ./web-app
         continue-on-error: false
@@ -206,7 +206,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
 
       - uses: actions/cache@v4
         name: Console Binary Cache
@@ -260,7 +260,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
 
       - uses: actions/cache@v4
         name: Console Binary Cache
@@ -313,7 +313,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
       - uses: actions/cache@v4
         name: Console Binary Cache
         with:
@@ -365,7 +365,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
       - uses: actions/cache@v4
         name: Console Binary Cache
         with:
@@ -417,7 +417,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
       - uses: actions/cache@v4
         name: Console Binary Cache
         with:
@@ -465,7 +465,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
       - uses: actions/cache@v4
         name: Console Binary Cache
         with:
@@ -513,7 +513,7 @@ jobs:
         working-directory: ./
         continue-on-error: false
         run: |
-          yarn add minio
+          pnpm add minio
       - uses: actions/cache@v4
         name: Console Binary Cache
         with:
@@ -825,8 +825,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NVMRC }}
-          cache: "yarn"
-          cache-dependency-path: web-app/yarn.lock
+          cache: "pnpm"
+          cache-dependency-path: web-app/pnpm-lock.yaml
       - uses: actions/cache@v4
         id: assets-cache-istanbul-coverage
         name: Assets Cache Istanbul Coverage
@@ -838,7 +838,7 @@ jobs:
         working-directory: ./web-app
         continue-on-error: false
         run: |
-          yarn install --immutable
+          pnpm install --frozen-lockfile
       - name: Check for Warnings in build output
         working-directory: ./web-app
         continue-on-error: false
@@ -1041,10 +1041,9 @@ jobs:
         run: |
           echo "Install dependencies"
           cd $GITHUB_WORKSPACE/web-app
-          yarn init -y
-          yarn add -D playwright babel-plugin-istanbul nyc react-app-rewired create-react-app @playwright/test
-          echo "yarn install"
-          yarn install --no-immutable
+          pnpm add -D playwright babel-plugin-istanbul nyc react-app-rewired create-react-app @playwright/test
+          echo "pnpm install"
+          pnpm install --no-frozen-lockfile
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -1064,7 +1063,7 @@ jobs:
         run: |
           echo "Run tests under playwright folder only"
           cd $GITHUB_WORKSPACE/web-app
-          yarn remove playwright
-          yarn add --dev @playwright/test
+          pnpm remove playwright
+          pnpm add --save-dev @playwright/test
           echo "npx playwright test"
           npx playwright test --reporter github # To run the tests

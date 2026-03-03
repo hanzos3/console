@@ -58,17 +58,17 @@ swagger-console:
 	@echo "Generating swagger server code from yaml"
 	@swagger generate server -A console --main-package=management --server-package=api --exclude-main -P models.Principal -f ./swagger.yml -r NOTICE
 	@echo "Ensure basic install"
-	@(cd web-app; yarn; cd ..)
+	@(cd web-app; pnpm install; cd ..)
 	@echo "Generating typescript api"
 	@make swagger-typescript-api path="../swagger.yml" output="./src/api" name="consoleApi.ts"
 	@git restore api/server.go
 
 swagger-typescript-api:
-	@(cd web-app; yarn swagger-typescript-api -p $(path) -o $(output) -n $(name) --custom-config ../generator.config.js; cd ..)
+	@(cd web-app; pnpm swagger-typescript-api -p $(path) -o $(output) -n $(name) --custom-config ../generator.config.js; cd ..)
 
 assets:
-	@(if [ -f "${NVM_DIR}/nvm.sh" ]; then \. "${NVM_DIR}/nvm.sh" && nvm install && nvm use && npm install -g yarn ; fi &&\
-	  cd web-app; corepack enable; yarn install --prefer-offline; make build-static; yarn prettier --write . --log-level warn; cd ..)
+	@(if [ -f "${NVM_DIR}/nvm.sh" ]; then \. "${NVM_DIR}/nvm.sh" && nvm install && nvm use; fi &&\
+	  cd web-app; pnpm install; make build-static; pnpm prettier --write . --log-level warn; cd ..)
 
 test-integration:
 	@(docker stop pgsqlcontainer || true)
